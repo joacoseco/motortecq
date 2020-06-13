@@ -1,3 +1,16 @@
 html {
     scroll-behavior: smooth;
 }
+
+body{
+    position: relative;
+    background-image: linear-gradient(to bottom right, red , black, white);
+}
+
+#contact{
+    background: linear-gradient(to right, rgba(255,0,0,0));
+}
+
+#map{
+    background-image: linear-gradient(to right, black, white);
+}
