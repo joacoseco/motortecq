@@ -75,7 +75,11 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3345.358191491283!2d-71.50425598481176!3d-33.020692480899065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9689dea27013d655%3A0x4596443f9b0b7a05!2sCamino%20Internacional%205415%2C%20Vi%C3%B1a%20del%20Mar%2C%20Valpara%C3%ADso!5e0!3m2!1ses-419!2scl!4v1592026993879!5m2!1ses-419!2scl" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
               </div>
               <div class="card-footer">
-                <p><strong>Número de Contacto:</strong> +56 9 9743 6957</p>
+              <div class="row">
+                <div class="col-1"><a href="https://api.whatsapp.com/send?phone=56 9 9743 6957"><i class="fa fa-whatsapp" aria-hidden="false"></i></a></div>
+                <div class="col-10"><p><strong>Número de Contacto:</strong>+56 9 9743 6957</p></div>
+              </div>
+             
                 <p><strong>Correo electrónico de Contacto:</strong> motortecq.automotriz@gmail.com</p>
               </div>
             </div>

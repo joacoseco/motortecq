@@ -13,12 +13,15 @@
     
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/164e1636ad.js" crossorigin="anonymous"></script>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
     <title>MotorTecq</title>
   </head>
   <body data-spy="scroll" data-target=".navbar" data-offset="50">
     <header>
-      <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top justify-content-center">
+      <nav class="navbar navbar-expand-lg bg-dark navbar-dark justify-content-center">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
