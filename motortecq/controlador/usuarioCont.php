@@ -2,10 +2,10 @@
 require "../../server/db.php";
 require "../../server/Trabajador.php";
 $response = array();
-
+/*
 if(isset($_GET['view'])){
     return consultar();
-}
+}*/
 
 if (isset($_POST['caso'])){
 
@@ -37,9 +37,6 @@ if (isset($_POST['caso'])){
         case 'listar':
             $sql="select * from trabajador";
             $data = query($sql);
-            var_dump($data);
-
-            
     }
     
 

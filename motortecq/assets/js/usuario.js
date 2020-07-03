@@ -16,7 +16,7 @@ $(function () {
                     cargo:$('#cargotxt').val(),
                     permiso:$('#permisotxt').val()
                 }
-            }).done(function(response){
+            }).done(function(response){ console.log(response);
                 var data = JSON.parse(response);
                 if(data['val']==true){
                     alert("trabajador agregado exitosamente");
