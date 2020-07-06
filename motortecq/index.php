@@ -16,7 +16,7 @@
           <div class="text-center" style="margin-top:250px;">
             <div id="services" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
-                <li data-target="#servicess" data-slide-to="0" class="active"></li>
+                <li data-target="#services" data-slide-to="0" class="active"></li>
                 <li data-target="#services" data-slide-to="1"></li>
                 <li data-target="#services" data-slide-to="2"></li>
                 <li data-target="#services" data-slide-to="3"></li>

@@ -20,7 +20,7 @@ if (isset($_POST['caso'])){
             $telefono=$_POST['telefono'];
             $email=$_POST['email'];
             $cargo=$_POST['cargo'];
-            $clave=substr($rut,0,strlen($rut)-1);
+            $clave= sha1(substr($rut,0,strlen($rut)-1));
             $permiso=$_POST['permiso'];
             $sql="insert into trabajador values('$rut', '$nombre','$apellidoPaterno','$apellidoPaterno', $telefono, '$email', '$cargo','$clave',$permiso)";
             $row = execute($sql);
@@ -34,12 +34,11 @@ if (isset($_POST['caso'])){
                     $response['mensaje']="Ese trabajador ya existe";
                 }
             }
+
         case 'listar':
             $sql="select * from trabajador";
             $data = query($sql);
     }
-    
-
     echo json_encode($response);
 }
 

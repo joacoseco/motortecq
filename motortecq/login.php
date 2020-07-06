@@ -29,7 +29,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-fill w-100 text-center">
                     <li class="nav-item">
-                        <i class="fas fa-arrow-circle-left"><a class="nav-link" href="index.php"> VOLVER INICIO</a></i>
+                        <i class="fas fa-arrow-circle-left text-white"><a class="nav-link" href="index.php"> VOLVER AL INICIO</a></i>
                     </li>
                 </ul>
                 </div>
@@ -59,7 +59,6 @@
                                     <input type="password" class="form-control shadow p-3 bg-white rounded" name="clave" value="">
                                 </div>
                                 <button type="submit" class="btn btn-primary" name="ingresar_btn" id="btn_ingresar">Ingresar</button>
-                                <a href="recuperarClave.php"><label class="ml-4" for="">Olvidé mi contraseña</label></a>
                             </div>
                         </div>
                     </form>

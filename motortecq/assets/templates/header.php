@@ -27,21 +27,33 @@
           <span class="navbar-toggler-icon"></span>
         </button>  
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav nav-fill w-50 text-center">
+          <ul class="navbar-nav nav-fill w-100 text-center">
             <li class="nav-item">
-              <a class="nav-link" href="#presentation">INICIO</a>
+              <a class="nav-link" href="index.php#presentation">INICIO</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#services">SERVICIOS</a>
+              <a class="nav-link" href="index.php#services">SERVICIOS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#frecuentUsers">CLIENTES FRECUENTES</a>
+              <a class="nav-link" href="index.php#frecuentUsers">CLIENTES FRECUENTES</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#contact">CONTACTO</a>
+              <a class="nav-link" href="index.php#contact">CONTACTO</a>
             </li>
+
+            <!-- TODO: Meter boton dentro de un IF de PHP para mostrar u ocultar -->
             <li class="nav-item">
               <a class="nav-link" href="login.php">INICIAR SESIÓN</a>
+            </li>
+
+            <!-- TODO: Meter boton dentro de un IF de PHP para mostrar u ocultar -->
+            <li class="nav-item">
+              <a class="nav-link" href="register.php">REGISTRARSE</a>
+            </li>
+
+            <!-- TODO: Meter boton dentro de un IF de PHP para mostrar u ocultar -->
+            <li class="nav-item">
+              <a class="nav-link" href="addUsers.php">AGREGAR USUARIOS</a>
             </li>
           </ul>
         </div>
