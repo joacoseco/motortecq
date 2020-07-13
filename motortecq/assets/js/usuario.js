@@ -1,4 +1,27 @@
 $(function () {
+    //cargar tabla
+    $.ajax({
+        url:"../server/controlador/usuarioCont.php",
+        type:"post",
+        data:{
+            caso: "listar"
+        }
+    }).done(function(response){
+        var data = JSON.parse(response);
+        console.log(response);
+        $.each(data, function( index, value ) {
+            var tr = "<tr>"+data[index]['rut'];
+            var tdNombre = "<td>"+data[index]['nombre']+' '+data[index]['apellidoPaterno']+' '+data[index]['apellidoMaterno']+"</td>";
+            var tdPermiso = "<td>"+data[index]['permiso']+"</td>";
+            var tdCargo = "<td>"+data[index]['cargo']+"</td>";
+            var tdBtn = "<td><a href='' class='btn btn-danger eliminar'>Eliminar</a></td>";
+            tr = tr + tdNombre + tdPermiso + tdCargo + tdBtn + "</tr>";
+            $('table > tbody').append(tr); 
+        });
+    });
+
+
+    //boton agregar trabajador
     $('#agregarBtn').click(function (e) {
         e.preventDefault();
         if(validar($('form:input'))==true){
@@ -29,7 +52,7 @@ $(function () {
                 if (result.value) {
                     
                     $.ajax({
-                        url:"controlador/usuarioCont.php",
+                        url:"../server/controlador/usuarioCont.php",
                         type:"post",
                         data:{
                             caso:'agregar',

@@ -1,14 +1,9 @@
 <?php
-require "../../server/db.php";
-require "../../server/Trabajador.php";
+require "../db.php";
+
 $response = array();
-/*
-if(isset($_GET['view'])){
-    return consultar();
-}*/
 
 if (isset($_POST['caso'])){
-
     switch($_POST['caso']){
         case 'agregar':
             $rut=$_POST['rut'];
@@ -36,26 +31,23 @@ if (isset($_POST['caso'])){
             }
 
         case 'listar':
-            $sql="select * from trabajador";
+            $sql="select rut,nombre,apellidoPaterno,apellidoMaterno,cargo,permiso from trabajador";
             $data = query($sql);
+            $trabajadores = array();
+            foreach ($data as $r){
+                $t = array();
+                $t['rut'] = $r['rut'];
+                $t['nombre']=$r['nombre'];
+                $t['apellidoPaterno']= $r['apellidoPaterno'];
+                $t['apellidoMaterno']= $r['apellidoMaterno'];
+                $t['cargo']= $r['cargo'];
+                $t['permiso']= $r['permiso'];
+                $trabajadores[]=$t;
+            }
+            $response = $trabajadores;
     }
     echo json_encode($response);
 }
 
-function consultar(){
-    $sql="select * from trabajador";
-    $data = query($sql);
-    $trabajadores = array();
-    foreach ($data as $r){
-        $t = new Trabajador();
-        $t->setRut($r['rut']);
-        $t->setNombre($r['nombre']);
-        $t->setApellidoPaterno($r['apellidoPaterno']);
-        $t->setApellidoMaterno($r['apellidoMaterno']);
-        $t->setCargo($r['cargo']);
-        $t->setPermiso($r['permiso']);
-        $trabajadores[]=$t;
-    }
-    return $trabajadores;
-}
+
 ?>

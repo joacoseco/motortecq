@@ -83,27 +83,16 @@
         </div>
         <div class="container pt-3">
             <h3>Listado de usuarios</h3>
-            <table class='table table-striped table-bordered table-hover'>
+            <table id="usuarioTabla" class='table table-striped table-bordered table-hover'>
                 <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>Permiso</th>
+                    <th>Cargo</th>
                     <th>Eliminar</th>
                 </tr>
                 </thead>
                 <tbody>
-                <?php if(empty($lista)){
-                    echo "<tr><td>no hay datos disponibles</td><td></td></tr>";
-                }else{
-                    foreach($lista as $i){?>
-                        <tr id="<?php echo $i->nombreCompleto(); ?>">
-                            <td><?php echo $i->getPermiso(); ?></td>
-                            <td> <a href="" class="btn btn-danger eliminar">Eliminar</a></td>
-                        </tr>
-
-                    <?php    }
-                } ?>
-
                 </tbody>
             </table>
         </div>
