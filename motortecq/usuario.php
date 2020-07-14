@@ -1,6 +1,5 @@
 <?php 
     require_once "assets/templates/header.php";
-    include "../server/Trabajador.php";
 ?>
 
 

@@ -1,7 +1,6 @@
 <?php require_once "assets/templates/header.php"; 
 include "../server/db.php";
 
-session_start();
 date_default_timezone_set('America/Santiago');
 // Unix
 setlocale(LC_TIME, 'es_CL.UTF-8');
