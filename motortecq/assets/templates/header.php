@@ -53,7 +53,7 @@
 
             <!-- TODO: Meter boton dentro de un IF de PHP para mostrar u ocultar -->
             <li class="nav-item">
-              <a class="nav-link" href="addUsers.php">AGREGAR USUARIOS</a>
+              <a class="nav-link" href="usuario.php">AGREGAR TRABAJADORES</a>
             </li>
           </ul>
         </div>
