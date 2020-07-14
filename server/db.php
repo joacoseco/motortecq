@@ -29,6 +29,7 @@ function query($sql)
 {
     $pdo = conexion();
     $resul = $pdo->query($sql);
+    $res=array();
     while ($row = $resul->fetch()) {
         $res[] = $row;
     }

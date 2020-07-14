@@ -8,7 +8,16 @@ setlocale(LC_TIME, 'spanish');
 include "../db.php";
 $response = array();
 if(isset($_GET['view'])){
-    $res = query("select * from disponibilidad");
+    $view = $_GET['view'];
+    switch($view){
+        case 1:
+            $res = query("select * from disponibilidad"); 
+        break;
+        case 2:
+            $res = query("SELECT * from disponibilidad where title!='En proceso' AND DATE(START)>=CURRENT_DATE()");
+        break;
+    }
+    
     foreach($res as $r){
         $p['id']=$r['id'];
         $p['title']=$r['title'];
@@ -30,8 +39,6 @@ if(isset($_GET['view'])){
             $response = agregarDisp($title,$start,$end,$color);
         break;     
             
-        case 'disp1':   //cuando se regitran cada hora manualmente
-
         case 'disp2': // cuando registra las horas automaticamente
             //$repetir = $_POST['repetir'];
             $title = $_POST['title'];
@@ -70,9 +77,30 @@ if(isset($_GET['view'])){
                 }
                
             }
-        break;
-        case 'reservar':
 
+        case 'reservar':
+            $title = $_POST['title'];
+            $id = $_POST['id']; 
+            $color = $_POST['color'];
+            $motivo = $_POST['motivo'];
+            $servicio= $_POST['servicio'];
+            $rut= trim($_POST['rut']);
+            $sql = "insert into reserva (idDisponiblidad,rutCliente,tipoServicio,motivo) values ('$id','$rut',$servicio,'$motivo')";
+            $row = execute($sql); 
+            if($row==1){
+                $sql ="UPDATE disponibilidad set title='$title', color='$color' where id=$id";
+                $row = execute($sql); 
+                if($row==1){
+                    $response['val']=true;
+                }else{
+                    $response['val']=false;
+                    $response['error'] = $row;
+                }
+            }else{
+                $response['val']=false;
+                $response['error'] = $row;
+            }
+        break;
             
     }
     

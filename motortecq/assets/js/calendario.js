@@ -104,20 +104,6 @@ $(function(){
                     location.reload();
                 });
                 break;
-            case "1": //cuando se agregan manual
-                //por programar
-             /*   $.ajax({
-                    url:"../server/controlador/calendarioCont.php",
-                    type:"post",
-                    data:{
-                        caso:'agregar'
-                    }
-                }).done(function(response){
-                    data = JSON.parse(response);
-            
-                });
-                */
-                break;
             case "2":  //cuando se hace automatico            
                 var startAl = $('#startAlTxt').val();
                 var endAl = $('#endAlTxt').val();
@@ -174,7 +160,7 @@ $(function(){
                         }
                     }).done(function(response){
                         //data = JSON.parse(response);
-                        console.log(response);
+                        location.reload();
                 
                     });
                 }else{
@@ -270,21 +256,4 @@ function horaSelect(arg){
     $("#endHTxt").val(end.format("HH:mm"));    
     
     $('#horaModal').modal('toggle');
-}
-
-
-//funcion agregar disponibilidad
-function calendario(){
-    var data;
-    $.ajax({
-        url:"../server/controlador/calendarioCont.php",
-        type:"post",
-        data:{
-            caso:'agregar'
-        }
-    }).done(function(response){
-        data = JSON.parse(response);
-
-    });
-    return data;
 }

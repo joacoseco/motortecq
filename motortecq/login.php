@@ -16,6 +16,9 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="assets/css/error.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
     <title>MotorTecq</title>
   </head>
@@ -51,14 +54,14 @@
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="correo">Correo</label>
-                                    <input type="text" class="form-control shadow p-3" name="rut" value="">
+                                    <label for="rut">Rut <span class="errorspan">*</span></label>
+                                    <input type="text" class="form-control shadow p-3" id="rut" value=""onkeypress="return numeros(event,this)" onfocusout="puntosRut(event,this)" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="clave">Clave</label>
-                                    <input type="password" class="form-control shadow p-3 bg-white rounded" name="clave" value="">
-                                </div>
-                                <button type="submit" class="btn btn-primary" name="ingresar_btn" id="btn_ingresar">Ingresar</button>
+                                    <label for="clave">Clave <span class="errorspan">*</span></label>
+                                    <input type="password" class="form-control shadow p-3 bg-white rounded" id="clave" value="">
+                                </div> <span class="errorspan" id="errorSpan">*</span>
+                                <button class="btn btn-primary" name="ingresar_btn" id="ingresarBtn">Ingresar</button>
                             </div>
                         </div>
                     </form>
@@ -66,6 +69,8 @@
             </div>
         </section>
         <?php require_once "assets/templates/footer.php"; ?>
+        <script src="assets/js/login.js"></script>
+        <script src="assets/js/rut.js"></script>
     </body>
 </html>
 

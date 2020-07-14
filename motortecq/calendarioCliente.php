@@ -1,7 +1,6 @@
 <?php require_once "assets/templates/header.php"; 
 include "../server/db.php";
 
-session_start();
 date_default_timezone_set('America/Santiago');
 // Unix
 setlocale(LC_TIME, 'es_CL.UTF-8');
@@ -61,14 +60,50 @@ header('Content-Type: text/html; charset=UTF-8');
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 id="header" class="modal-tittle">Escoja el horario disponible que le acomode</h5>
+                <h5 id="header" class="modal-tittle">Escoja el horario disponible que le acomode</h5> <br>
                 <h5 id="fechaTitle"></h5>
                 <button class="close" data-dismiss="modal"><span>X</span></button>
             </div>
             <div class="container">
                 <div class=" modal-body">
-                    <form action="">
-                        
+                    <form action=""> 
+                    <span id="idSpan" hidden></span>
+                    <span id="rutSpan" hidden>
+                        <?php $usuario = $_SESSION['usuario']; echo $usuario->getrut(); ?></span>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4">
+                            <div class="form-group">
+                                <label for="">Hora inicio</label>
+                                <input type="time" class="form-control" id="startTxt"  readOnly>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="form-group">
+                                <label for="">Hora termino</label>
+                                <input type="time" class="form-control" id="endTxt" readOnly>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="form-group">
+                                <label for="servicioSelect">Tipo de servicio que requiere</label>
+                                <select class="form-control" id="servicioSelect">
+                                    <option value="0" selected>Escoja una opcion</option>
+                                    <option value="1">Diagnostico</option>
+                                    <option value="2">Mantencion Preventiva</option>
+                                    <option value="3">Mantencion Correctiva</option>
+                                    <option value="4">Informes</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-group">
+                                <label for="motivoTxt">Escriba en sus palabras el motivo de su Reserva</label>
+                                <textArea class="form-control" rows="4" cols="50" id="motivoTxt"></textArea>
+                            </div>
+                        </div>
+                    </div>
                         <p id="text" class="errorspan"></p>
                         <button class="btn btn-primary" id="guardarBtn">Reservar</button>
                         <button class="btn btn-danger" id="cancelarBtn">Cancelar</button>

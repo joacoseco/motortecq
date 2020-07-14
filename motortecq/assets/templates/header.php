@@ -1,3 +1,16 @@
+<?php
+  require "../server/trabajador.php";
+  require "../server/cliente.php";
+
+  session_start();
+
+  if(isset($_SESSION['usuario'])){
+    $usuario = $_SESSION['usuario'];
+    $permiso = $usuario->getPermiso();
+  }
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -40,21 +53,47 @@
             <li class="nav-item">
               <a class="nav-link" href="index.php#contact">CONTACTO</a>
             </li>
+            <?php if(!isset($_SESSION['usuario'])){ ?>
+                <!-- TODO: Meter boton dentro de un IF de PHP para mostrar u ocultar -->
+                <li class="nav-item">
+                  <a class="nav-link" href="login.php">INICIAR SESIÓN</a>
+                </li>
 
-            <!-- TODO: Meter boton dentro de un IF de PHP para mostrar u ocultar -->
-            <li class="nav-item">
-              <a class="nav-link" href="login.php">INICIAR SESIÓN</a>
-            </li>
-
-            <!-- TODO: Meter boton dentro de un IF de PHP para mostrar u ocultar -->
-            <li class="nav-item">
-              <a class="nav-link" href="register.php">REGISTRARSE</a>
-            </li>
-
-            <!-- TODO: Meter boton dentro de un IF de PHP para mostrar u ocultar -->
-            <li class="nav-item">
-              <a class="nav-link" href="usuario.php">AGREGAR TRABAJADORES</a>
-            </li>
+                <!-- TODO: Meter boton dentro de un IF de PHP para mostrar u ocultar -->
+                <li class="nav-item">
+                  <a class="nav-link" href="register.php">REGISTRARSE</a>
+                </li>
+            <?php }else{ ?>
+                <li class="nav-item">
+                <a class="nav-link" href="logout.php">Cerrar sesion</a>
+              </li>
+            <?php } 
+            
+            if(isset($_SESSION['usuario'])){
+                switch($permiso){
+                  case 1: //admin ?>
+                    <!-- TODO: Meter boton dentro de un IF de PHP para mostrar u ocultar -->
+                    <li class="nav-item">
+                      <a class="nav-link" href="usuario.php">AGREGAR TRABAJADORES</a>
+                    </li>
+                    <!-- TODO: Meter boton dentro de un IF de PHP para mostrar u ocultar -->
+                    <li class="nav-item">
+                      <a class="nav-link" href="calendario.php">PUBLICAR DISPONIBILIDAD</a>
+                    </li>
+                <?php  break;
+                  case 2: //cliente ?>
+                    <!-- TODO: Meter boton dentro de un IF de PHP para mostrar u ocultar -->
+                    <li class="nav-item">
+                      <a class="nav-link" href="calendarioCliente.php">Reservar Hora de atencion</a>
+                    </li>
+               <?php   break;
+                }
+            }     
+            if(isset($_SESSION['usuario'])){ ?>              
+              <li class="nav-item">
+                <p>Bienvenido <?php echo $usuario->nombreCompleto() ?> </p>
+              </li>
+            <?php } ?>
           </ul>
         </div>
         
